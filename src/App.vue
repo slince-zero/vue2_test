@@ -1,7 +1,10 @@
 <template>
     <div>
-        <School></School>
-        <Student></Student>
+        <School name="北京大学"></School>
+        <Student ref="sch"></Student>
+        <h1 v-text="msg" ref="title"></h1>
+        <button ref="btn" @click="showDom">点我看看</button>
+        <hr>
     </div>
 </template>
 
@@ -14,6 +17,16 @@ export default {
     components: {
         School,
         Student
+    },
+    data() {
+        return {
+            msg: '你好呀',
+        };
+    },
+    methods:{
+        showDom(){
+            console.log(this.$refs);
+        }
     }
 }
 </script>

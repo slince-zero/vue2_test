@@ -1,24 +1,32 @@
 <template>
     <div class="demo">
-        <h2>学校名称: {{ name }}</h2>
+        <h2>学校名称: {{ myNname }}</h2>
         <h2>学校地址: {{ add }}</h2>
+        <button @click="update">更新学校名称</button>
     </div>
+    
 </template>
 
 <script>
 export default {
-    name:'School',
+    name: 'School',
     data() {
         return {
-            name: '北京大学',
-            add: '北京'
+            add: '北京',
+            myNname: this.name
+        }
+    },
+    props: ['name'],
+    methods: {
+        update(){
+            this.myNname = '清华大学'
         }
     }
 }
 </script>
 
 <style>
-.demo{
+.demo {
     background-color: orange;
 }
 </style>
