@@ -1,33 +1,45 @@
 <template>
-    <div>
-        <School name="北京大学"></School>
-        <Student ref="sch"></Student>
-        <h1 v-text="msg" ref="title"></h1>
-        <button ref="btn" @click="showDom">点我看看</button>
-        <hr>
+    <div id="root">
+        <div class="todo-container">
+            <div class="to-warp">
+                <MyHeader :addTodo="addTodo"/>
+                <!-- :todosa="todos"中的:todosa是变量，是通过props配置向子组件传递数据 -->
+                <MyList :todosa="todos"/>
+                <MyFooter />
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-import School from './components/School.vue'
-import Student from './components/Student.vue'
+import MyHeader from './components/MyHeader';
+import MyFooter from './components/MyFooter';
+import MyList from './components/MyList';
+import MyItem from './components/MyItem';
 
 export default {
     name: 'App',
     components: {
-        School,
-        Student
+        MyFooter,
+        MyHeader,
+        MyItem,
+        MyList
     },
     data() {
         return {
-            msg: '你好呀',
-        };
+            todos: [
+                { id: '001', title: '吃饭', done: true },
+                { id: '002', title: '睡觉', done: false },
+                { id: '003', title: '打豆豆', done: true }
+            ]
+        }
     },
     methods:{
-        showDom(){
-            console.log(this.$refs);
+        addTodo(todoObj){
+            this.todos.unshift(todoObj)
         }
     }
+
 }
 </script>
 
