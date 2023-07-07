@@ -4,8 +4,8 @@
             <div class="to-warp">
                 <MyHeader :addTodo="addTodo" />
                 <!-- :todosa="todos"中的:todosa是变量，是通过props配置向子组件传递数据 -->
-                <MyList :todosa="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"/>
-                <MyFooter />
+                <MyList :todosa="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo" />
+                <MyFooter :todos="todos" :checkAllTodo="checkAllTodo" :removeAllTodo="removeAllTodo"/>
             </div>
         </div>
     </div>
@@ -49,6 +49,18 @@ export default {
         deleteTodo(id) {
             this.todos = this.todos.filter((todo) => {
                 return todo.id !== id
+            })
+        },
+        // 全选
+        checkAllTodo(done) {
+            this.todos.forEach((todo) => {
+                todo.done = done
+            })
+        },
+        // 清除所有已完成的todo
+        removeAllTodo() {
+            this.todos = this.todos.filter((todo) => {
+                return !todo.done
             })
         }
     }
