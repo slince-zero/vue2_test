@@ -2,9 +2,9 @@
     <div id="root">
         <div class="todo-container">
             <div class="to-warp">
-                <MyHeader :addTodo="addTodo"/>
+                <MyHeader :addTodo="addTodo" />
                 <!-- :todosa="todos"中的:todosa是变量，是通过props配置向子组件传递数据 -->
-                <MyList :todosa="todos"/>
+                <MyList :todosa="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"/>
                 <MyFooter />
             </div>
         </div>
@@ -34,9 +34,22 @@ export default {
             ]
         }
     },
-    methods:{
-        addTodo(todoObj){
+    methods: {
+        // 添加一个todo
+        addTodo(todoObj) {
             this.todos.unshift(todoObj)
+        },
+        // 勾选或者取消一个todo
+        checkTodo(id) {
+            this.todos.forEach((todo) => {
+                if (todo.id == id) todo.done = !todo.done
+            })
+        },
+        // 删除一个todo
+        deleteTodo(id) {
+            this.todos = this.todos.filter((todo) => {
+                return todo.id !== id
+            })
         }
     }
 
