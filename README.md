@@ -107,3 +107,26 @@ npm run build
 3. 使用v-model时，切记：v-model绑定的值不能是props传过来的值，因为props是不可以被修改的
 
 4. props传过来的若是对象类型的值，修改对象中的属性时，Vue不会报错，但不推荐这么做
+
+
+
+## 组件的自定义事件
+
+1. 一种组件间的通信方式，适用于：子组件 ===> 父组件
+
+2. 使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A中给B绑定自定义事件（**事件的回调在A中**）
+
+3. 绑定自定义事件：
+
+    第一种方式，在父组件中：<Demo @zidingyi="test"/> 或 <Demo v-on:zidingyi="test"/>(其中，zidingyi是绑定的事件，意思是当该事件被触发，test函数会被执行)
+
+    第二种方式，在父组件中：
+
+        <Demo ref="demo"/>
+        ...
+        mounted(){
+            this.$refs.xxx.$on('zidingyi',this.test)
+        }
+
+4. 触发自定义事件：this.$emit('zidingyi',数据)
+
