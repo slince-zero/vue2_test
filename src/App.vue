@@ -1,19 +1,18 @@
 <template>
-    <div>
-        <Student/>
-        <School/>
+    <div class="container">
+        <Search/>
+        <List/>
     </div>
 </template>
 
 <script>
-import School from './components/School.vue'
-import Student from './components/Student.vue'
-
+import List from './components/List.vue';
+import Search from './components/Search.vue';
 export default {
     name: 'App',
     components: {
-        School,
-        Student
+        List,
+        Search
     }
 }
 </script>

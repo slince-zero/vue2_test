@@ -13,8 +13,8 @@ Vue.config.productionTip = false
 // 创建vue的实例对象---vm
 new Vue({
   render: h => h(App),
-  beforeCreate() {
-    Vue.prototype.$bus = this
+  beforeCreate(){
+    Vue.prototype.$bus = this // 安装全局事件总线
   }
 }).$mount('#app')
 
