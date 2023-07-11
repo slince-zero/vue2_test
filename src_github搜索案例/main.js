@@ -8,19 +8,14 @@ import App from './App.vue'
 // 关闭vue的生产提示
 Vue.config.productionTip = false
 
-// 引入vuex
-import Vuex from 'vuex'
 
-
-// 引入store
-import store from './store'
 
 // 创建vue的实例对象---vm
 new Vue({
   render: h => h(App),
-  store,
-
-  
+  beforeCreate() {
+    Vue.prototype.$bus = this
+  }
 }).$mount('#app')
 
 

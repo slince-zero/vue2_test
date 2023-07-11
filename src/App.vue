@@ -1,20 +1,20 @@
 <template>
-    <div class="container">
-        <Search/>
-        <List/>
+    <div>
+        <Count/>    
     </div>
 </template>
 
 <script>
-import List from './components/List.vue';
-import Search from './components/Search.vue';
+import Count from './components/Count';
 export default {
     name: 'App',
     components: {
-        List,
-        Search
-    }
+        Count
+    },
 }
 </script>
 
-<style></style>
+<style>
+
+</style>
+
