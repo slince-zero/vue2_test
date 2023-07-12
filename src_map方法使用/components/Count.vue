@@ -2,6 +2,7 @@
     <div>
         <h3>计数器,当前求和为：{{ sum }}</h3>
         <h3>我在{{ school }},學習{{ subject }}</h3>
+        <h3>下方的人员数量是  {{ personList.length }}</h3>
         <select v-model="num">
             <option :value="1">1</option>
             <option :value="2">2</option>
@@ -55,7 +56,7 @@ export default {
         //     return this.$store.state.subject
         // },
 
-        ...mapState(['sum', 'school', 'subject'])
+        ...mapState(['sum', 'school', 'subject','personList'])
     },
 
 }

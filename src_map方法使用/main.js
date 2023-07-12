@@ -8,16 +8,19 @@ import App from './App.vue'
 // 关闭vue的生产提示
 Vue.config.productionTip = false
 
-import VueRouter from 'vue-router'
-import router from "./router"
-Vue.use(VueRouter)
+// 引入vuex
+import Vuex from 'vuex'
 
 
+// 引入store
+import store from './store'
 
 // 创建vue的实例对象---vm
 new Vue({
   render: h => h(App),
-  router:router
+  store,
+
+  
 }).$mount('#app')
 
 
