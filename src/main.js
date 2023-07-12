@@ -17,7 +17,7 @@ Vue.use(VueRouter)
 // 创建vue的实例对象---vm
 new Vue({
   render: h => h(App),
-  router:router
+  router
 }).$mount('#app')
 
 

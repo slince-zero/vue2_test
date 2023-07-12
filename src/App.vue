@@ -12,7 +12,7 @@
                 <div class="list-group">
                     <!-- <a href="">About</a>
                     <a href="">Home</a> -->
-                    <router-link to="/about">About</router-link>
+                    <router-link to="/About">About</router-link>
                     <router-link to="/Home">Home</router-link>
                 </div>
             </div>
