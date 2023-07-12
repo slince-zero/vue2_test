@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h3>计数器,当前求和为：{{ $store.state.sum }}</h3>
+        <h3>计数器,当前求和为：{{ sum }}</h3>
+        <h3>我在{{ school }},學習{{ subject }}</h3>
         <select v-model="num">
             <option :value="1">1</option>
             <option :value="2">2</option>
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     name: 'Count',
     data() {
@@ -23,10 +25,13 @@ export default {
     },
     methods: {
         increment() {
-            this.$store.dispatch('jiafa', this.num)
+            // this.$store.dispatch('jiafa', this.num)
+            this.$store.commit('JIAFA', this.num)
         },
         decrement() {
-            this.$store.dispatch('jianfa', this.num)
+            // this.$store.dispatch('jianfa', this.num)
+            this.$store.commit('JIANFA', this.num)
+
         },
         incrementOdd() {
             if (this.$store.state.sum % 2) {
@@ -38,7 +43,21 @@ export default {
                 this.$store.dispatch('jiafa', this.num)
             }, 500)
         },
-    }
+    },
+    computed: {
+        // sum(){
+        //     return this.$store.state.sum
+        // },
+        // school(){
+        //     return this.$store.state.school
+        // },
+        // subject(){
+        //     return this.$store.state.subject
+        // },
+
+        ...mapState(['sum', 'school', 'subject'])
+    },
+
 }
 </script>
 
